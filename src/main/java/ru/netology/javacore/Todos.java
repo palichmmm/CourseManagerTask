@@ -15,13 +15,10 @@ public class Todos {
     }
 
     public String getAllTasks() {
-        List<String> listTasks = tasks.stream()
+        String listTasks = tasks.stream()
                 .sorted(Comparator.naturalOrder())
-                .collect(Collectors.toList());
-        return String.valueOf(listTasks)
-                .replace(", ", " ")
-                .replace("[", "")
-                .replace("]", "");
+                .collect(Collectors.joining(" "));
+        return listTasks;
     }
 
 }
